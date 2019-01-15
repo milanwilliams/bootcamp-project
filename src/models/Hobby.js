@@ -1,5 +1,5 @@
 const BaseModel = require('./BaseModel')
-const { User } = require('./User')
+const { BelongsToOneRelation } = require('objection')
 
 class Hobby extends BaseModel {
   static get tableName() {
@@ -7,17 +7,19 @@ class Hobby extends BaseModel {
   }
 
   static get relationMappings() {
+    const User = require('./User')
+
     return {
-      users: {
-        relation: BaseModel.HasManyRelation,
+      hobbies: {
+        relation: BelongsToOneRelation,
         modelClass: User,
         join: {
           from: 'hobbies.userId',
-          to: 'user.id',
+          to: 'users.id',
         },
       },
     }
   }
 }
 
-module.exports = { User, Hobby }
+module.exports = Hobby
