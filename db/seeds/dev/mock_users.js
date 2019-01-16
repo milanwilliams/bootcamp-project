@@ -1,6 +1,6 @@
-const usersData = require('../../../migrations/users')
-const hobbiesData = require('/migrations/Hobby')
-const postsData = require('../../../migrations/posts')
+const usersData = require('../../../data/users')
+const hobbiesData = require('../../../data/hobbies')
+const postsData = require('../../../data/posts')
 
 const createPost = (knex, post, name) => {
   return knex('users')

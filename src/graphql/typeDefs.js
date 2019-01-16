@@ -33,15 +33,39 @@ module.exports = gql`
     birthday: String
     concentration: String
     hometown: String
-    house: String
+    house: House
     gender: String
     bio: String
     picture: String
-    hobbies: [HobbyInput!]
+    hobbies: Hobby
   }
-  input HobbyInput {
-    hobby: String!
+  enum Hobby {
+    SPORTS
+    ARTS
+    MUSIC
+    READING
+    TRAVEL
+    DINING
+    CODING
   }
+
+  enum House {
+    ADAMS
+    WINTHROP
+    MATHER
+    DUNSTER
+    ELIOT
+    CURRIER
+    PFOHO
+    CABOT
+    KIRKLAND
+    QUINCY
+    LOWELL
+    LEVERETT
+    DUDLEY
+    FIRSTYEAR
+  }
+
   type User {
     id: ID!
     name: String!

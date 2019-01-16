@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable('users', table => {
-      table.increments('id').primary()
+      table.uuid('id').primary()
       table.timestamp('created_at').defaultTo(knex.fn.now())
       table.timestamp('updated_at').defaultTo(knex.fn.now())
       table
@@ -30,7 +30,7 @@ exports.up = function(knex, Promise) {
         'MATHER',
         'KIRKLAND',
         'DUDLEY',
-        'FIRST-YEAR',
+        'FIRSTYEAR',
       ])
       table.text('gender')
       table.text('bio')
@@ -40,5 +40,5 @@ exports.up = function(knex, Promise) {
 }
 
 exports.down = function(knex, Promise) {
-  return Promise.all([knex.schema.dropTable('ideas')])
+  return Promise.all([knex.schema.dropTable('users')])
 }

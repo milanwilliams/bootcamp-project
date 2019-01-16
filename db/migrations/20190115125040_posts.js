@@ -1,11 +1,11 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable('posts', table => {
-      table.increments('id').primary()
+      table.uuid('id').primary()
       table.timestamp('created_at').defaultTo(knex.fn.now())
       table.timestamp('updated_at').defaultTo(knex.fn.now())
       table.text('content').notNull()
-      table.integer('userId').notNull()
+      table.uuid('userId').notNull()
     }),
   ])
 }
